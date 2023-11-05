@@ -1,24 +1,13 @@
 import random
-number=random.randint(1000,9999)
-print(number)
-while True:
-    guess=int(input())
 
-    if guess==number:
-        print('ты угадал!')
-
-    number_=[]
-    for num in str(number):
-        number_.append(num)
-    print(number_)
+def number_generator():
+    number=random.randint(1000,9999)
+    return number
 
 
-    guess_=[]
-    for digit in str(guess):
-        guess_.append(digit)
-    print(guess_)
-
-
+def guess_func(num,gues):
+    number_=[int(x) for x in str(num)] #спизидл у гпт
+    guess_=[int(x) for x in str(gues)] 
 
     a='' 
     for i in range(len(number_)):
@@ -28,6 +17,16 @@ while True:
             a+='!'    
         else:
             a+='-'
-    print(a)
+    return(a)
 
+#эту часть тож
+num=number_generator()
+while True:
+    gues=int(input())
+   
+    if gues == num:
+        print('ti ygagdal')
+        break
     
+    a=guess_func(num,gues)
+    print(a)   
