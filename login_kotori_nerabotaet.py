@@ -28,8 +28,10 @@ def counter_(a):
 connection = sqlite3.connect('my_database.db')
 cursor = connection.cursor()
 login=input()
-# Выбираем всех пользователей
-a=user_check
+#забираю значение каунтера из функции user_check и передаю ее в функц сounter_
+#чет не рабоатет, мб проблема в user_check чет мне не оч нравится входящие туда данные
+a=user_check 
+
 
 print(counter_)
 
