@@ -1,10 +1,7 @@
 import sqlite3
 
-def user_check(login,cursor):
-    cursor.execute('SELECT * FROM LOSERS')
-    users = cursor.fetchall()
+def user_check(login,users):
     print (users)
-
     counter=0
     for user in users:
         for name in user:
@@ -27,13 +24,15 @@ def counter_(a):
 # Устанавливаем соединение с базой данных
 connection = sqlite3.connect('my_database.db')
 cursor = connection.cursor()
+cursor.execute('SELECT * FROM LOSERS') #убрал из функции 2 эти строчки поменял входные данные в user_check
+users = cursor.fetchall()              #и потом понял что просто не правильно вызывал функцию. осталось только разобраться с классами и внести эту штуку в другую)))))))) let's go
 login=input()
-#забираю значение каунтера из функции user_check и передаю ее в функц сounter_
-#чет не рабоатет, мб проблема в user_check чет мне не оч нравится входящие туда данные
-a=user_check 
+# Выбираем всех пользователей
+a=user_check(login,users)
+print(a)
+x=counter_(a)
+print(x)
 
-
-print(counter_)
 
 
 connection.commit()
